@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}forum{% endblock %}
+
+{% block content %}
+<h1>Forum main page</h1>
+{% if forums %}
+    {% for a in forums %}
+        <div>
+            <h1><a href="{{ a.id }}">{{a.title}}</a></h1>
+            {% for i in a.topic_set.all %}
+            <a href="{{a.id}}/{{i.id}}">{{ i }}</a>
+            <br>
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% else %}
+No forums >-<
+{% endif %}
+
+{% endblock %}
