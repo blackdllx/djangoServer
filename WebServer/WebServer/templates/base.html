@@ -5,6 +5,13 @@
     <title>{% block title %}title{% endblock %}</title>
 </head>
 <body>
+{% if request.user.is_authenticated %}
+<h3>{{request.user}} --- <a HREF="/logout">Log out</a> </h3>
 {% block content %} {% endblock %}
+{% else %}
+<a href="/login">Log in</a>
+You are unloginned please log in
+{% endif %}
+
 </body>
 </html>

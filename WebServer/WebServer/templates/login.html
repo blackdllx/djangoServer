@@ -1,5 +1,3 @@
-{% extends 'base.html' %}
-
 {% block title %}login{% endblock %}
 
 {% block content %}
@@ -8,11 +6,13 @@
 
 <form action="" method="post">
     {% csrf_token %}
-    <br>
-    <input type="text", value="", name="username">username</input>
-    <br>
-    <input type="password", value="", name="password">password</input>
-    <br>
-    <input type="submit">send</input>
+<!--    <br>-->
+<!--    <input type="text", value="", name="username">username</input>-->
+<!--    <br>-->
+<!--    <input type="password", value="", name="password">password</input>-->
+<!--    <br>-->
+<!--    <input type="submit">send</input>-->
+    {{form.as_p}}
+    <input type="submit" value="login" >
 </form>
 {% endblock %}

@@ -3,6 +3,12 @@
 {% block title %}forum{% endblock %}
 
 {% block content %}
+<!--<h4>Currect user: {{request.user}} &#45;&#45;&#45;&#45; <a href="/admin/logout/">Logout</a></h4>-->
+<!--{% if request.user.is_authenticated %}-->
+<!--    {{request.user}}-->
+<!--{% else %}-->
+<!--asdfasa-->
+<!--{% endif %}-->
 <h1>Forum main page</h1>
 {% if forums %}
     {% for a in forums %}

@@ -1,6 +1,7 @@
 from .mail import main
 from django.http import HttpResponse
 from django.conf import settings
+from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import authenticate
 from django.shortcuts import render
 from .models import Forum, Topic, EmailVerify
@@ -30,16 +31,22 @@ def auth(request):
 
 
 def index(request):
-    c = auth(request)
-    if c == True:
-        username = request.COOKIES.get("username")
-        password = request.COOKIES.get("password")
-        forums = Forum.objects.all()
-        response = render(request, "mainIndex.html", {"forums": forums[:3]})
-        response.set_cookie("username", username, domain=settings.SESSION_COOKIE_DOMAIN)
-        response.set_cookie("password", password, domain=settings.SESSION_COOKIE_DOMAIN)
-        return response
-    return c
+    # c = auth(request)
+    # if c == True:
+    #     username = request.COOKIES.get("username")
+    #     password = request.COOKIES.get("password")
+    #     forums = Forum.objects.all()
+    #     response = render(request, "mainIndex.html", {"forums": forums[:3]})
+    #     response.set_cookie("username", username, domain=settings.SESSION_COOKIE_DOMAIN)
+    #     response.set_cookie("password", password, domain=settings.SESSION_COOKIE_DOMAIN)
+    #     return response
+    # return c
+    # if request.user.is_authenticated:
+    #     forums = Forum.objects.all()
+    #     return render(request, "mainIndex.html", {"forums": forums[:3]})
+    # return HttpResponse("bad")
+    forums = Forum.objects.all()
+    return render(request, "mainIndex.html", {"forums": forums[:3]})
 
 def forum(request, forum_id):
     c = auth(request)
