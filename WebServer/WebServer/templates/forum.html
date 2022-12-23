@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h4><a href="/">Back</a></h4>
 {% for a in topics %}
 <a href="{{forum.id}}/{{a.id}}">{{a.title}}</a>
 <br>
+
 {% endfor %}
 {% endblock %}

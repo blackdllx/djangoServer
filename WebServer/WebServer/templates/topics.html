@@ -5,11 +5,13 @@
 {% endblock %}
 
 {% block content %}
+<a href="/{{topic.forum.id}}">Get Back</a>
+
 {% for a in coments %}
 <sp>
-    {{a.author}}<br>
+    <h3>{{a.author}}</h3>
         -- {{a.text}}
 </sp>
-
+<br>
 {% endfor %}
 {% endblock %}
